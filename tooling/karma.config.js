@@ -8,7 +8,7 @@ module.exports = function (config) {
             '../node_modules/babel-core/browser-polyfill.js',
             '../src/**/*.spec.js'
         ],
-        frameworks: ['jasmine'],
+        frameworks: ['tap'],
         preprocessors: {
             '../src/**/*.spec.js': ['webpack']
         },
@@ -43,7 +43,6 @@ module.exports = function (config) {
             dir: '../coverage/',
             reporters: [
                 {type: 'text'},
-                {type: 'html', subdir: 'html'},
                 {type: 'lcov', subdir: 'lcov'}
             ]
         }
