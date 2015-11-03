@@ -7,6 +7,10 @@
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "start": "node devServer.js",
+    "test": "NODE_ENV=production karma start ./tooling/karma.config.js",
+    "coverage": "npm run coverage:serve && npm run coverage:browse",
+    "coverage:serve": "serve --port 3003 --no-logs coverage/lcov/lcov-report &",
+    "coverage:browse": "'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' 'http://localhost:3003' 2>/dev/null",
     "lint": "eslint src"
   },
   "repository": {
@@ -41,6 +45,16 @@
     "eslint-plugin-react": "^2.3.0",
     "express": "^4.13.3",
     "html-webpack-plugin": "^1.6.2",
+    "isparta-instrumenter-loader": "^0.2.1",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.14",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-spec-reporter": "0.0.22",
+    "karma-webpack": "^1.7.0",
+    "phantomjs": "^1.9.18",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.0",
     "redbox-react": "^1.0.1",
@@ -51,7 +65,8 @@
     "webpack-hot-middleware": "^2.0.0"
   },
   "dependencies": {
+    "jquery": "^2.1.4",
     "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react-dom": "^0.14.2"
   }
 }
