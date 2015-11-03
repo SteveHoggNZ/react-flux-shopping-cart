@@ -25,7 +25,7 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './tooling/index.html',
       // filename will default to the same path as bundle unless ../ is used
       filename: '../index.html',
       inject: 'body' // Inject webpack scripts into the body.
