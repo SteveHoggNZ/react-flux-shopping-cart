@@ -13,15 +13,8 @@ module.exports = function (config) {
             '../src/**/*.spec.js': ['webpack']
         },
         reporters: ['spec', 'coverage'],
-        singleRun: true,
+        singleRun: false,
         webpack: {
-            //plugins: [
-            //    new webpack.DefinePlugin({
-            //        'process.env': {
-            //            'NODE_ENV': JSON.stringify('production')
-            //        }
-            //    })
-            //],
             entry: {},
             module: {
                 preLoaders: [
@@ -32,7 +25,7 @@ module.exports = function (config) {
                             /\.spec\.js/
                         ],
                         loader: 'isparta-instrumenter-loader'
-                    },
+                    }
                 ],
                 loaders: [
                     {
@@ -44,7 +37,7 @@ module.exports = function (config) {
             }
         },
         webpackServer: {
-            noInfo: true,
+            noInfo: true
         },
         coverageReporter: {
             dir: '../coverage/',
