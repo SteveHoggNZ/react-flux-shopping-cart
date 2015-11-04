@@ -1,11 +1,18 @@
 React Transform Boilerplate
 =====================
 
+[![Build Status](https://api.travis-ci.org/SteveHoggNZ/react-transform-boilerplate.png)](https://api.travis-ci.org/SteveHoggNZ/react-transform-boilerplate)
+
 A *new* Webpack boilerplate with:
 
 * hot reloading React components;
 * error handling inside component `render()` function;
 * error handling for syntax errors (thanks, **[@glenjamin](https://github.com/glenjamin)**!)
+
+and
+
+* Hot-Module-Replacement
+* Karma test runner and Tape tests
 
 Built with **[babel-plugin-react-transform](https://github.com/gaearon/babel-plugin-react-transform)** and a few custom transforms.  
 **[Does not](https://medium.com/@dan_abramov/the-death-of-react-hot-loader-765fa791d7c4)** use React Hot Loader.
