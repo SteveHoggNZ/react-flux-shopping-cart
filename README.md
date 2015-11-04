@@ -1,7 +1,7 @@
 React Transform Boilerplate
 =====================
 
-[![Build Status](https://api.travis-ci.org/SteveHoggNZ/react-transform-boilerplate.png)](https://api.travis-ci.org/SteveHoggNZ/react-transform-boilerplate)
+[![Build Status](https://travis-ci.org/SteveHoggNZ/react-transform-boilerplate.png)](https://travis-ci.org/SteveHoggNZ/react-transform-boilerplate)
 
 A *new* Webpack boilerplate with:
 
