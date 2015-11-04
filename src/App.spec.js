@@ -8,43 +8,36 @@ import { App } from './App';
  
 import test from 'tape';
 
-test('A passing test', (assert) => {
-  assert.pass('This test will pass.');
-  assert.end();
-});
+test('Counter has correct values', (assert) => {
+  assert.plan(3);
 
-test('Assertions with tape.', (assert) => {
+  var shallowRenderer = TestUtils.createRenderer();
+  shallowRenderer.render(<App/>);
+  var component2 = shallowRenderer.getRenderOutput();
+
+  let expected = 'MyApp';
+  let actual = component2.props.className;
+  assert.equal(actual, expected,
+    `Expected '${expected}' and got '${actual}'`);
+
   var component = TestUtils.renderIntoDocument(<App/>);
 
   //  Find the DOM element for the created component.
   var node = ReactDOM.findDOMNode(component);
 
-  const expected = 'Counter (10): 0';
-  const actual = $(node).find('h1:first').text();
+  expected = 'Counter (10): 0';
+  actual = $(node).find('h1:first').text();
 
   assert.equal(actual, expected,
     `Expected '${expected}' and got '${actual}'`);
 
-  assert.end();
-});
+  expected = 'Counter (10): 10';
+  setTimeout(() => {
+    actual = $(node).find('h1:first').text();
 
-//describe('App', () => {
-//
-//    beforeEach(function(done) {
-//       setTimeout(done(), 4000);
-//    });
-//
-//  it('should render to the DOM', function() {
-//    var component = TestUtils.renderIntoDocument(<App/>);
-//
-//
-//    //  Create the <App /> react component.
-//    //var component = React.render(<App/>, document.body);
-//
-//    //  Find the DOM element for the created component.
-//    var node = ReactDOM.findDOMNode(component);
-//
-//    expect($(node).find('h1:first').text()).toEqual('Counter (10): 0');
-//  });
-//
-//});
+    assert.equal(actual, expected,
+      `Expected '${expected}' and got '${actual}'`);
+
+    //ReactDOM.unmountComponentAtNode(component);
+  }, 1000);
+});
