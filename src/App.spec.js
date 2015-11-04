@@ -31,7 +31,7 @@ test('Counter has correct values', (assert) => {
   assert.equal(actual, expected,
     `Expected '${expected}' and got '${actual}'`);
 
-  expected = 'Counter (10): 1';
+  expected = 'Counter (10): 10';
   setTimeout(() => {
     actual = $(node).find('h1:first').text();
 
