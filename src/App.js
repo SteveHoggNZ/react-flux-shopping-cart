@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { NICE, SUPER_NICE } from './colors';
 
-class Counter extends Component {
+export class Counter extends Component {
   constructor(props) {
     super(props);
-    this.state = { counter: 0 };
+    this.state = {counter: 0};
     this.interval = setInterval(() => this.tick(), 1000);
   }
 
@@ -29,11 +29,18 @@ class Counter extends Component {
 
 export class App extends Component {
   render() {
+    var counters = this.props.counters.map((counter, index) => {
+      return <Counter increment={counter.increment} color={counter.color} key={index}/>
+    });
+
     return (
       <div className='MyApp'>
-        <Counter increment={10} color={NICE} />
-        <Counter increment={5} color={SUPER_NICE} />
+        {counters}
       </div>
     );
   }
 }
+
+App.propTypes = {
+  counters: React.PropTypes.array.isRequired
+};
