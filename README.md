@@ -13,6 +13,7 @@ and
 
 * Hot-Module-Replacement
 * Karma test runner and Tape tests
+* Travis-CI button
 
 Built with **[babel-plugin-react-transform](https://github.com/gaearon/babel-plugin-react-transform)** and a few custom transforms.  
 **[Does not](https://medium.com/@dan_abramov/the-death-of-react-hot-loader-765fa791d7c4)** use React Hot Loader.
