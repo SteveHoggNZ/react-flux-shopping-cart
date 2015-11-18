@@ -9,16 +9,12 @@ import Cart from './cart/app-cart';
 import CartButton from './cart/app-cart-button';
 
 test('Testing works', (assert) => {
-  //var spy = sinon.spy();
-
-  const buttonHandler = () => {
-    console.log('Button handler called');
-  };
+  var callback = sinon.spy();
 
   const buttonText = 'Testing';
 
   const shallowRenderer = ReactTestUtils.createRenderer();
-  shallowRenderer.render(<CartButton handler={buttonHandler} txt={buttonText} />);
+  shallowRenderer.render(<CartButton handler={callback} txt={buttonText} />);
 
   let result = shallowRenderer.getRenderOutput();
 
@@ -31,6 +27,9 @@ test('Testing works', (assert) => {
   //  Hopefully ReactTestUtils.Simulate.click() etc will support shallow rendering at some stage
   //  https://github.com/facebook/react/issues/1445
   result.props.onClick();
+  //result.props.onClick();
+
+  assert.equal(callback.callCount, 1, 'Cart button clicked once');
 
   shallowRenderer.unmount();
 

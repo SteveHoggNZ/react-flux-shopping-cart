@@ -9,7 +9,7 @@ module.exports = function (config) {
       '../node_modules/babel-core/browser-polyfill.js',
       '../src/**/*.spec.js'
     ],
-    frameworks: ['tap'],
+    frameworks: ['tap', 'sinon'],
     preprocessors: {
       '../src/**/*.spec.js': ['webpack']
     },
