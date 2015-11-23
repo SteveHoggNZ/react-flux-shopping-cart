@@ -6,7 +6,7 @@ import test from 'tape';
 import Catalog from '../catalog/app-catalog';
 import CartButton from './app-cart-button';
 
-test('Cart button works', (assert) => {
+test('Cart button works', (t) => {
   var callback = sinon.spy();
 
   const buttonText = 'Testing';
@@ -16,22 +16,19 @@ test('Cart button works', (assert) => {
 
   let result = shallowRenderer.getRenderOutput();
 
-  console.log("here")
-  console.log(result.type);
-
   let expected, actual;
 
   expected = 'button';
   actual = result.type;
-  assert.equal(actual, expected, "Cart button is a button");
+  t.equal(actual, expected, "Cart button is a button");
 
   expected = buttonText;
   actual = result.props.children;
-  assert.equal(actual, expected, `Cart button text is correctly set to '${buttonText}'`);
+  t.equal(actual, expected, `Cart button text is correctly set to '${buttonText}'`);
 
   expected = 0;
   actual = callback.callCount;
-  assert.equal(actual, expected, 'Cart button not clicked');
+  t.equal(actual, expected, 'Cart button not clicked');
 
   // manually invoke onClick handler via props
   //  Hopefully ReactTestUtils.Simulate.click() etc will support shallow rendering at some stage
@@ -40,9 +37,16 @@ test('Cart button works', (assert) => {
 
   expected = 1;
   actual = callback.callCount;
-  assert.equal(actual, expected, 'Cart button clicked once');
+  t.equal(actual, expected, 'Cart button clicked once');
 
+  test('Has choiceness', (t) => {
+    expected = 1;
+    actual = callback.callCount;
+    t.equal(actual, expected, 'Cart button clicked once still');
+
+    t.end();
+  });
+
+  t.end();
   shallowRenderer.unmount();
-
-  assert.end();
 });

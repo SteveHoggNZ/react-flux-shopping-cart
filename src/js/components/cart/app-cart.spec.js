@@ -7,6 +7,8 @@ import Catalog from '../catalog/app-catalog';
 import Cart from './app-cart';
 
 test('Cart works', (assert) => {
+  assert.plan(1);
+
   const shallowRenderer = ReactTestUtils.createRenderer();
   shallowRenderer.render(<Cart />);
 

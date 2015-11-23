@@ -6,12 +6,14 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
     files: [
       //  We need to polyfill as PhantomJS doesn't support 'bind'.
-      '../node_modules/babel-core/browser-polyfill.js',
-      '../src/**/*.spec.js'
+      './node_modules/babel-core/browser-polyfill.js',
+      //'../src/**/*.spec.js'
+      'webpack.test.entry.js'
     ],
+    // https://github.com/tmcw/karma-tap/issues/10
     frameworks: ['tap', 'sinon'],
     preprocessors: {
-      '../src/**/*.spec.js': ['webpack']
+      'webpack.test.entry.js': ['webpack']
     },
     reporters: ['spec', 'coverage'],
     singleRun: false,
@@ -32,7 +34,7 @@ module.exports = function (config) {
           {
             test: /\.jsx?$/,
             loader: 'babel-loader',
-            include: path.resolve(__dirname, '../src')
+            include: path.resolve(__dirname, './src')
           }
         ]
       },
