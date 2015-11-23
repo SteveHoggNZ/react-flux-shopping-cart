@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = function (config) {
   config.set({
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome', 'PhantomJS'],
     files: [
       //  We need to polyfill as PhantomJS doesn't support 'bind'.
       './node_modules/babel-core/browser-polyfill.js',
@@ -15,7 +15,7 @@ module.exports = function (config) {
     preprocessors: {
       'webpack.test.entry.js': ['webpack']
     },
-    reporters: ['spec', 'coverage'],
+    reporters: ['coverage', 'spec'],
     singleRun: false,
     webpack: {
       entry: {},

@@ -21,12 +21,10 @@ test('Cart item displayed correctly', (assert) => {
 
   let expected, actual;
 
-  expected = 'td';
+  expected = 'tr';
   actual = result.type;
   assert.equal(actual, expected, "Cart item is a table row");
-
-  assert.equal(actual, 'tr', "Cart item is a table row2");
-
+  
   shallowRenderer.unmount();
 
   assert.end();
